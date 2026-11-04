@@ -398,3 +398,51 @@ body {
     max-height: 360px;
   }
 }
+
+/* ==================================================
+   Korrektur: Äußere Jekyll-Breitenbegrenzung aufheben
+   ================================================== */
+
+/* Äußere Theme-Container verbreitern */
+
+.wrapper,
+.page-content,
+.main-content,
+.container {
+  max-width: 1600px !important;
+  width: 100% !important;
+}
+
+/* Seiteninhalt */
+
+.page-content {
+  padding: 20px 0 !important;
+}
+
+/* Eigenes Layout auf volle verfügbare Breite setzen */
+
+.site-layout {
+  width: calc(100% - 50px) !important;
+  max-width: 1550px !important;
+  margin: 25px auto !important;
+}
+
+/* Hauptinhalt bekommt ausreichend Platz */
+
+.content {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Auf sehr breiten Monitoren */
+
+@media (min-width: 1400px) {
+  .site-layout {
+    grid-template-columns: 250px minmax(0, 1fr);
+    max-width: 1700px !important;
+  }
+
+  .content {
+    padding: 55px 65px;
+  }
+}
