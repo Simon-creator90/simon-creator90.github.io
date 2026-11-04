@@ -1,4 +1,4 @@
-/* ESP32 Connect – Dark Tech Theme */
+/* ESP32 Connect – Responsive Dark Tech Theme */
 
 :root {
   --background: #101820;
@@ -13,6 +13,15 @@
 
 /* Grundlayout */
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+
 body {
   margin: 0;
   background: var(--background);
@@ -22,15 +31,15 @@ body {
   font-size: 16px;
 }
 
-/* Gesamter Seitenaufbau */
+/* Seitenaufbau */
 
 .site-layout {
   display: grid;
-  grid-template-columns: 230px minmax(0, 1fr);
-  gap: 35px;
-  max-width: 1250px;
-  margin: 35px auto;
-  padding: 0 25px;
+  grid-template-columns: 235px minmax(0, 1fr);
+  gap: 30px;
+  width: calc(100% - 60px);
+  max-width: 1600px;
+  margin: 30px auto;
   align-items: start;
 }
 
@@ -42,13 +51,13 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 22px 18px;
+  padding: 22px 16px;
 }
 
 .sidebar h3 {
   color: var(--accent);
-  font-size: 1.15rem;
-  margin: 0 0 15px;
+  font-size: 1.2rem;
+  margin: 0 0 18px;
 }
 
 .sidebar ul {
@@ -63,16 +72,25 @@ body {
 
 .sidebar a {
   display: block;
-  padding: 8px 10px;
+  padding: 9px 12px;
   color: var(--muted);
   text-decoration: none;
-  border-radius: 6px;
+  border-left: 3px solid transparent;
+  border-radius: 5px;
   font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
 }
 
 .sidebar a:hover {
   color: var(--accent);
   background: var(--surface-light);
+}
+
+.sidebar a.active {
+  color: var(--accent);
+  background: var(--surface-light);
+  border-left-color: var(--accent);
+  font-weight: 700;
 }
 
 /* Hauptinhalt */
@@ -82,15 +100,14 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 40px 45px;
-  box-sizing: border-box;
+  padding: 48px 55px;
 }
 
 /* Überschriften */
 
 .content h1 {
   color: var(--accent);
-  font-size: 2.7rem;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   text-align: center;
   margin: 0 0 5px;
   letter-spacing: -1px;
@@ -98,7 +115,7 @@ body {
 
 .content h2 {
   color: var(--accent);
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   margin-top: 55px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
@@ -106,11 +123,11 @@ body {
 
 .content h3 {
   color: var(--text);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-top: 0;
 }
 
-/* Text */
+/* Fließtext */
 
 .content p {
   color: var(--muted);
@@ -120,51 +137,7 @@ body {
   color: var(--text);
 }
 
-/* Zweispaltige Bild- und Textbereiche */
-
-.feature-row {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: 30px;
-  align-items: center;
-  margin: 30px 0 45px;
-  padding: 22px;
-  background: var(--surface-light);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
-
-.feature-image {
-  min-width: 0;
-  text-align: center;
-}
-
-.feature-image img {
-  display: block;
-  width: 100%;
-  max-width: 280px;
-  max-height: 430px;
-  height: auto;
-  object-fit: contain;
-  margin: 0 auto;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-}
-
-.feature-text {
-  min-width: 0;
-}
-
-.feature-text h3 {
-  color: var(--accent);
-}
-
-.feature-text p {
-  margin-bottom: 0;
-}
-
-/* ESP32-Bild */
+/* Produktbild */
 
 .product-image {
   text-align: center;
@@ -173,11 +146,100 @@ body {
 
 .product-image img {
   width: 100%;
-  max-width: 300px;
+  max-width: 360px;
   height: auto;
   border-radius: 14px;
   border: 1px solid var(--border);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Zwei App-Karten nebeneinander */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin: 30px 0 45px;
+}
+
+.feature-card {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.8fr) minmax(0, 1.2fr);
+  gap: 18px;
+  align-items: center;
+  min-width: 0;
+  padding: 20px;
+  background: var(--surface-light);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.feature-card .feature-image {
+  min-width: 0;
+  text-align: center;
+}
+
+.feature-card .feature-image img {
+  display: block;
+  width: 100%;
+  max-width: 190px;
+  max-height: 340px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.feature-card .feature-text {
+  min-width: 0;
+}
+
+.feature-card .feature-text h3 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.feature-card .feature-text p {
+  font-size: 0.95rem;
+  margin-top: 0;
+}
+
+/* Einzelne Bild-Text-Zeile, z.B. Diagramm */
+
+.feature-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 35px;
+  align-items: center;
+  margin: 30px 0 45px;
+  padding: 25px;
+  background: var(--surface-light);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.feature-row .feature-image {
+  min-width: 0;
+  text-align: center;
+}
+
+.feature-row .feature-image img {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  max-height: 470px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.feature-row .feature-text {
+  min-width: 0;
 }
 
 /* Listen */
@@ -210,7 +272,7 @@ body {
 .content hr {
   border: 0;
   border-top: 1px solid var(--border);
-  margin: 40px 0;
+  margin: 45px 0;
 }
 
 /* Download-Bereich */
@@ -219,7 +281,7 @@ body {
   background: var(--surface-light);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 25px;
+  padding: 28px;
   margin-top: 25px;
 }
 
@@ -243,11 +305,34 @@ body {
   color: #101820;
 }
 
+/* Mittlere Bildschirmbreiten */
+
+@media (max-width: 1150px) {
+  .site-layout {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 20px;
+    width: calc(100% - 35px);
+  }
+
+  .content {
+    padding: 35px 30px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card .feature-image img {
+    max-width: 180px;
+  }
+}
+
 /* Smartphone und schmale Fenster */
 
-@media (max-width: 850px) {
+@media (max-width: 750px) {
   .site-layout {
     display: block;
+    width: 100%;
     margin: 0;
     padding: 12px;
   }
@@ -268,21 +353,32 @@ body {
   }
 
   .content {
-    padding: 25px 20px;
+    padding: 25px 18px;
   }
 
-  .feature-row {
+  .feature-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
   }
 
-  .feature-image img {
-    max-width: 240px;
-    max-height: 380px;
+  .feature-card,
+  .feature-row {
+    grid-template-columns: minmax(100px, 0.8fr) minmax(0, 1.2fr);
+    gap: 15px;
+    padding: 16px;
+  }
+
+  .feature-card .feature-image img {
+    max-width: 160px;
+    max-height: 300px;
+  }
+
+  .feature-row .feature-image img {
+    max-width: 190px;
+    max-height: 360px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
   .content h1 {
     font-size: 2rem;
   }
@@ -291,7 +387,14 @@ body {
     font-size: 1.4rem;
   }
 
-  .content {
-    padding: 22px 15px;
+  .feature-card,
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card .feature-image img,
+  .feature-row .feature-image img {
+    max-width: 210px;
+    max-height: 360px;
   }
 }
