@@ -1,4 +1,7 @@
-/* ESP32 Connect – Responsive Dark Tech Theme */
+
+/* ==================================================
+   ESP32 Connect – Responsive Dark Tech Theme
+   ================================================== */
 
 :root {
   --background: #101820;
@@ -20,34 +23,58 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 30px;
+  width: 100%;
 }
 
 body {
-  margin: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
   background: var(--background);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.7;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
-/* Seitenaufbau */
+/* Äußere GitHub-Pages- und Jekyll-Container */
+
+.wrapper,
+.page-content,
+.main-content,
+.container,
+.markdown-body {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* ==================================================
+   Desktop-Seitenaufbau
+   ================================================== */
 
 .site-layout {
   display: grid;
-  grid-template-columns: 235px minmax(0, 1fr);
+  grid-template-columns: 240px minmax(0, 1fr);
   gap: 30px;
-  width: calc(100% - 60px);
-  max-width: 1600px;
-  margin: 30px auto;
+  width: calc(100% - 60px) !important;
+  max-width: 1800px !important;
+  margin: 25px auto !important;
+  padding: 0;
   align-items: start;
 }
 
-/* Linke Navigation */
+/* Navigation */
 
 .sidebar {
   position: sticky;
   top: 25px;
+  width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -96,6 +123,9 @@ body {
 /* Hauptinhalt */
 
 .content {
+  display: block;
+  width: 100%;
+  max-width: none !important;
   min-width: 0;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -153,7 +183,7 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* Zwei App-Karten nebeneinander */
+/* App-Karten */
 
 .feature-grid {
   display: grid;
@@ -206,7 +236,7 @@ body {
   margin-top: 0;
 }
 
-/* Einzelne Bild-Text-Zeile, z.B. Diagramm */
+/* Diagramm-Bereich */
 
 .feature-row {
   display: grid;
@@ -275,7 +305,7 @@ body {
   margin: 45px 0;
 }
 
-/* Download-Bereich */
+/* Downloads */
 
 .download-area {
   background: var(--surface-light);
@@ -305,13 +335,16 @@ body {
   color: #101820;
 }
 
-/* Mittlere Bildschirmbreiten */
+/* ==================================================
+   Mittlere Bildschirmbreiten
+   ================================================== */
 
-@media (max-width: 1150px) {
+@media (max-width: 1150px) and (min-width: 751px) {
+
   .site-layout {
     grid-template-columns: 200px minmax(0, 1fr);
     gap: 20px;
-    width: calc(100% - 35px);
+    width: calc(100% - 35px) !important;
   }
 
   .content {
@@ -321,90 +354,92 @@ body {
   .feature-grid {
     grid-template-columns: 1fr;
   }
-
-  .feature-card .feature-image img {
-    max-width: 180px;
-  }
 }
 
-/* Smartphone und schmale Fenster */
-
-/* Smartphone und schmale Fenster */
+/* ==================================================
+   Smartphones und schmale Fenster
+   ================================================== */
 
 @media (max-width: 750px) {
 
   html,
   body {
     width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
     overflow-x: hidden;
   }
 
-  .site-layout {
-    display: block !important;
+  /* Alle äußeren Theme-Container */
+
+  .wrapper,
+  .page-content,
+  .main-content,
+  .container,
+  .markdown-body {
     width: 100% !important;
     max-width: none !important;
+    min-width: 0 !important;
     margin: 0 !important;
-    padding: 8px !important;
+    padding: 0 !important;
+  }
+
+  /* Seitenlayout nutzt den gesamten Bildschirm */
+
+  .site-layout {
+    display: block !important;
+    width: 100vw !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 5px !important;
   }
 
   /* Navigation untereinander */
 
   .sidebar {
-    position: static;
-    width: 100%;
-    margin: 0 0 12px;
-    padding: 16px;
+    position: static !important;
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 8px !important;
+    padding: 12px !important;
   }
 
   .sidebar ul {
     display: block !important;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .sidebar li {
     display: block !important;
-    width: 100%;
-    margin: 0;
+    width: 100% !important;
+    margin: 0 !important;
   }
 
   .sidebar a {
-    display: block;
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
     padding: 8px 12px;
   }
 
-  /* Hauptinhalt */
+  /* Hauptinhalt auf volle Breite */
 
   .content {
+    display: block;
     width: 100% !important;
     max-width: none !important;
-    min-width: 0;
-    padding: 22px 15px !important;
-    border-radius: 12px;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 20px 12px !important;
+    border-radius: 10px;
   }
 
-  /* App-Karten untereinander */
-
-  .feature-grid {
-    grid-template-columns: 1fr !important;
-    gap: 18px;
-  }
-
-  .feature-card,
-  .feature-row {
-    display: grid;
-    grid-template-columns: 1fr !important;
-    gap: 15px;
-    padding: 15px;
-  }
-
-  .feature-card .feature-image img,
-  .feature-row .feature-image img {
-    max-width: 210px;
-    max-height: 360px;
-  }
+  /* Überschriften */
 
   .content h1 {
     font-size: 2rem;
@@ -412,10 +447,45 @@ body {
 
   .content h2 {
     font-size: 1.4rem;
+    margin-top: 35px;
   }
 
+  /* App-Karten untereinander */
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .feature-card,
+  .feature-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100%;
+    min-width: 0;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .feature-card .feature-image img,
+  .feature-row .feature-image img {
+    max-width: 220px;
+    max-height: 360px;
+  }
+
+  /* Produktbild */
+
+  .product-image img {
+    max-width: 260px;
+  }
+
+  /* Downloads */
+
   .download-area {
-    padding: 18px;
+    width: 100%;
+    padding: 15px;
   }
 
   .download-area a {
@@ -423,133 +493,49 @@ body {
     width: 100%;
     text-align: center;
     margin: 10px 0;
+    padding: 12px 8px;
   }
 }
 
-/* Sehr schmale Smartphones */
+/* Besonders kleine Smartphones */
 
 @media (max-width: 380px) {
+
   .site-layout {
-    padding: 5px !important;
+    padding: 3px !important;
   }
 
   .content {
-    padding: 18px 12px !important;
+    padding: 16px 10px !important;
   }
 
   .content h1 {
     font-size: 1.8rem;
   }
-}
 
+  .content h2 {
+    font-size: 1.3rem;
+  }
+
+  .feature-card,
+  .feature-row {
+    padding: 10px;
+  }
+}
 
 /* ==================================================
-   Korrektur: Äußere Jekyll-Breitenbegrenzung aufheben
+   Große Desktop-Bildschirme
    ================================================== */
 
-/* Äußere Theme-Container verbreitern */
-
-.wrapper,
-.page-content,
-.main-content,
-.container {
-  max-width: 1600px !important;
-  width: 100% !important;
-}
-
-/* Seiteninhalt */
-
-.page-content {
-  padding: 20px 0 !important;
-}
-
-/* Eigenes Layout auf volle verfügbare Breite setzen */
-
-.site-layout {
-  width: calc(100% - 50px) !important;
-  max-width: 1550px !important;
-  margin: 25px auto !important;
-}
-
-/* Hauptinhalt bekommt ausreichend Platz */
-
-.content {
-  width: 100%;
-  min-width: 0;
-}
-
-/* Auf sehr breiten Monitoren */
-
 @media (min-width: 1400px) {
+
   .site-layout {
+    width: calc(100% - 60px) !important;
+    max-width: 1800px !important;
     grid-template-columns: 250px minmax(0, 1fr);
-    max-width: 1700px !important;
   }
 
   .content {
     padding: 55px 65px;
-  }
-}
-
-
-/* Äußere Begrenzungen des GitHub-Pages-Themes aufheben */
-
-html,
-body {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-}
-
-.wrapper,
-.page-content,
-.main-content,
-.container,
-.markdown-body,
-main,
-header,
-footer {
-  max-width: none !important;
-}
-
-/* Theme-Abstände entfernen */
-
-.page-content {
-  padding: 0 !important;
-}
-
-.wrapper {
-  width: 100% !important;
-  padding: 0 !important;
-}
-
-/* Eigenes Seitenlayout breit darstellen */
-
-.site-layout {
-  width: calc(100% - 40px) !important;
-  max-width: 1800px !important;
-  margin: 20px auto !important;
-  grid-template-columns: 240px minmax(0, 1fr) !important;
-}
-
-/* Hauptbereich darf nicht künstlich schmal werden */
-
-.content {
-  width: 100% !important;
-  max-width: none !important;
-  min-width: 0 !important;
-  box-sizing: border-box;
-}
-
-/* Auf großen Bildschirmen mehr Platz nutzen */
-
-@media (min-width: 1400px) {
-  .site-layout {
-    width: calc(100% - 60px) !important;
-    max-width: 1800px !important;
-  }
-
-  .content {
-    padding: 55px 65px !important;
   }
 }
