@@ -52,38 +52,28 @@
 
 ## Die App in Aktion
 
-<div class="feature-row" markdown="1">
+<div class="feature-grid">
 
-<div class="feature-image">
-  <img src="ressourcen/Nicht_verbunden.jpg" alt="ESP32 Connect ohne Verbindung">
+<div class="feature-card">
+  <div class="feature-image">
+    <img src="ressourcen/Nicht_verbunden.jpg" alt="ESP32 Connect ohne Verbindung">
+  </div>
+  <div class="feature-text">
+    <h3>Verbindung herstellen</h3>
+    <p>Die App ermöglicht es, nach einem ESP32 zu suchen und eine Verbindung herzustellen. Der Verbindungsstatus ist jederzeit sichtbar. So erkennst du direkt, ob dein Smartphone mit dem Mikrocontroller kommuniziert.</p>
+  </div>
 </div>
 
-<div class="feature-text" markdown="1">
-
-### Verbindung herstellen
-
-Die App ermöglicht es, nach einem ESP32 zu suchen und eine Verbindung herzustellen.
-
-Der Verbindungsstatus ist jederzeit sichtbar. So erkennst du direkt, ob dein Smartphone mit dem Mikrocontroller kommuniziert.
-
-</div>
-</div>
-
-<div class="feature-row" markdown="1">
-
-<div class="feature-image">
-  <img src="ressourcen/Verbunden.jpg" alt="ESP32 Connect mit verbundenem ESP32">
+<div class="feature-card">
+  <div class="feature-image">
+    <img src="ressourcen/Verbunden.jpg" alt="ESP32 Connect mit verbundenem ESP32">
+  </div>
+  <div class="feature-text">
+    <h3>Verbunden und einsatzbereit</h3>
+    <p>Nach erfolgreicher Verbindung steht die Kommunikation mit dem ESP32 zur Verfügung. Über die App kannst du die unterstützten Funktionen nutzen und Befehle an den Mikrocontroller senden.</p>
+  </div>
 </div>
 
-<div class="feature-text" markdown="1">
-
-### Verbunden und einsatzbereit
-
-Nach erfolgreicher Verbindung steht die Kommunikation mit dem ESP32 zur Verfügung.
-
-Über die App kannst du die unterstützten Funktionen nutzen und Befehle an den Mikrocontroller senden.
-
-</div>
 </div>
 
 ---
@@ -92,21 +82,15 @@ Nach erfolgreicher Verbindung steht die Kommunikation mit dem ESP32 zur Verfügu
 
 ## Daten empfangen und visualisieren
 
-<div class="feature-row" markdown="1">
-
-<div class="feature-image">
-  <img src="ressourcen/Diagramm.jpg" alt="Diagramm mit empfangenen ESP32-Daten">
-</div>
-
-<div class="feature-text" markdown="1">
-
-### Messwerte direkt auf dem Smartphone
-
-ESP32 Connect kann Daten vom Mikrocontroller empfangen und grafisch darstellen.
-
-Die übertragenen Werte werden in einem Diagramm sichtbar. Dadurch lassen sich Datenverläufe direkt am Smartphone verfolgen, ohne dass dafür ein zusätzlicher Computer benötigt wird.
-
-</div>
+<div class="feature-row">
+  <div class="feature-image">
+    <img src="ressourcen/Diagramm.jpg" alt="Diagramm mit empfangenen ESP32-Daten">
+  </div>
+  <div class="feature-text">
+    <h3>Messwerte direkt auf dem Smartphone</h3>
+    <p>ESP32 Connect kann Daten vom Mikrocontroller empfangen und grafisch darstellen.</p>
+    <p>Die übertragenen Werte werden in einem Diagramm sichtbar. Dadurch lassen sich Datenverläufe direkt am Smartphone verfolgen, ohne dass dafür ein zusätzlicher Computer benötigt wird.</p>
+  </div>
 </div>
 
 ---
@@ -143,12 +127,13 @@ Das Python-Programm wird direkt auf dem ESP32 ausgeführt. Es übernimmt die Kom
 
 Die beiden benötigten Dateien stehen hier zum Download bereit:
 
-<div class="download-area" markdown="1">
+<div class="download-area">
 
-### Alle Dateien
+<h3>Alle Dateien</h3>
 
-- [Android-App herunterladen – esp32_connect.apk](ressourcen/esp32_connect.apk)
-- [MicroPython-Programm herunterladen – esp32_connect.py](ressourcen/esp32_connect.py)
+<p><a href="ressourcen/esp32_connect.apk" download>Android-App herunterladen – esp32_connect.apk</a></p>
+
+<p><a href="ressourcen/esp32_connect.py" download>MicroPython-Programm herunterladen – esp32_connect.py</a></p>
 
 </div>
 
@@ -156,3 +141,35 @@ Die beiden benötigten Dateien stehen hier zum Download bereit:
 
 </main>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll(".sidebar a[href^='#']");
+  const sections = Array.from(links)
+    .map(link => ({
+      link: link,
+      section: document.getElementById(link.getAttribute("href").substring(1))
+    }))
+    .filter(item => item.section);
+
+  function updateActiveLink() {
+    let current = sections[0];
+
+    for (const item of sections) {
+      if (item.section.getBoundingClientRect().top <= 160) {
+        current = item;
+      }
+    }
+
+    links.forEach(link => link.classList.remove("active"));
+
+    if (current) {
+      current.link.classList.add("active");
+    }
+  }
+
+  window.addEventListener("scroll", updateActiveLink, { passive: true });
+  window.addEventListener("resize", updateActiveLink);
+  updateActiveLink();
+});
+</script>
