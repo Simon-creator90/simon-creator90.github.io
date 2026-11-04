@@ -329,56 +329,83 @@ body {
 
 /* Smartphone und schmale Fenster */
 
+/* Smartphone und schmale Fenster */
+
 @media (max-width: 750px) {
-  .site-layout {
-    display: block;
-    width: 100%;
-    margin: 0;
-    padding: 12px;
+
+  html,
+  body {
+    width: 100% !important;
+    overflow-x: hidden;
   }
+
+  .site-layout {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 8px !important;
+  }
+
+  /* Navigation untereinander */
 
   .sidebar {
     position: static;
-    margin-bottom: 15px;
+    width: 100%;
+    margin: 0 0 12px;
+    padding: 16px;
   }
 
   .sidebar ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
+    display: block !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   .sidebar li {
+    display: block !important;
+    width: 100%;
     margin: 0;
   }
 
-  .content {
-    padding: 25px 18px;
+  .sidebar a {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
   }
 
+  /* Hauptinhalt */
+
+  .content {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0;
+    padding: 22px 15px !important;
+    border-radius: 12px;
+  }
+
+  /* App-Karten untereinander */
+
   .feature-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 18px;
   }
 
   .feature-card,
   .feature-row {
-    grid-template-columns: minmax(100px, 0.8fr) minmax(0, 1.2fr);
+    display: grid;
+    grid-template-columns: 1fr !important;
     gap: 15px;
-    padding: 16px;
+    padding: 15px;
   }
 
-  .feature-card .feature-image img {
-    max-width: 160px;
-    max-height: 300px;
-  }
-
+  .feature-card .feature-image img,
   .feature-row .feature-image img {
-    max-width: 190px;
+    max-width: 210px;
     max-height: 360px;
   }
-}
 
-@media (max-width: 480px) {
   .content h1 {
     font-size: 2rem;
   }
@@ -387,17 +414,34 @@ body {
     font-size: 1.4rem;
   }
 
-  .feature-card,
-  .feature-row {
-    grid-template-columns: 1fr;
+  .download-area {
+    padding: 18px;
   }
 
-  .feature-card .feature-image img,
-  .feature-row .feature-image img {
-    max-width: 210px;
-    max-height: 360px;
+  .download-area a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
   }
 }
+
+/* Sehr schmale Smartphones */
+
+@media (max-width: 380px) {
+  .site-layout {
+    padding: 5px !important;
+  }
+
+  .content {
+    padding: 18px 12px !important;
+  }
+
+  .content h1 {
+    font-size: 1.8rem;
+  }
+}
+
 
 /* ==================================================
    Korrektur: Äußere Jekyll-Breitenbegrenzung aufheben
