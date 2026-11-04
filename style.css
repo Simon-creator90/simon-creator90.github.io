@@ -446,3 +446,66 @@ body {
     padding: 55px 65px;
   }
 }
+
+
+/* Äußere Begrenzungen des GitHub-Pages-Themes aufheben */
+
+html,
+body {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.wrapper,
+.page-content,
+.main-content,
+.container,
+.markdown-body,
+main,
+header,
+footer {
+  max-width: none !important;
+}
+
+/* Theme-Abstände entfernen */
+
+.page-content {
+  padding: 0 !important;
+}
+
+.wrapper {
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Eigenes Seitenlayout breit darstellen */
+
+.site-layout {
+  width: calc(100% - 40px) !important;
+  max-width: 1800px !important;
+  margin: 20px auto !important;
+  grid-template-columns: 240px minmax(0, 1fr) !important;
+}
+
+/* Hauptbereich darf nicht künstlich schmal werden */
+
+.content {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Auf großen Bildschirmen mehr Platz nutzen */
+
+@media (min-width: 1400px) {
+  .site-layout {
+    width: calc(100% - 60px) !important;
+    max-width: 1800px !important;
+  }
+
+  .content {
+    padding: 55px 65px !important;
+  }
+}
