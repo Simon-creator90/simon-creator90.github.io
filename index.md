@@ -8,7 +8,7 @@
 
 **ESP32 Connect** verbindet deinen ESP32 mit deinem Android-Smartphone. Über Bluetooth Low Energy (BLE) kannst du deinen Mikrocontroller kabellos steuern, Befehle senden und Daten empfangen.
 
-![ESP32 Connect – ESP32 Mikrocontroller](Esp32.jpg)
+![ESP32 Connect – ESP32 Mikrocontroller](ressourcen/Esp32.jpg)
 
 ---
 
@@ -29,11 +29,11 @@
 
 Die App ermöglicht es, nach einem ESP32 zu suchen und eine Verbindung herzustellen. Der aktuelle Verbindungsstatus ist jederzeit sichtbar.
 
-![App ohne Verbindung](Nicht_verbunden.jpg)
+![App ohne Verbindung](ressourcen/Nicht_verbunden.jpg)
 
 *Die App im nicht verbundenen Zustand.*
 
-![App mit Verbindung](Verbunden.jpg)
+![App mit Verbindung](ressourcen/Verbunden.jpg)
 
 *Die App nach erfolgreicher Verbindung mit einem ESP32.*
 
@@ -41,7 +41,7 @@ Die App ermöglicht es, nach einem ESP32 zu suchen und eine Verbindung herzustel
 
 Neben der Steuerung kann ESP32 Connect auch Daten vom Mikrocontroller empfangen und grafisch darstellen. So lassen sich übertragene Werte direkt auf dem Smartphone verfolgen.
 
-![Diagramm mit empfangenen Daten](Diagramm.jpg)
+![Diagramm mit empfangenen Daten](ressourcen/Diagramm.jpg)
 
 *Empfangene Daten werden in einem Diagramm dargestellt.*
 
@@ -73,7 +73,7 @@ Das Python-Programm wird auf dem ESP32 ausgeführt. Es übernimmt die Kommunikat
 
 Die beiden benötigten Dateien stehen hier zum Download bereit:
 
-- [Android-App – esp32_connect.apk](esp32_connect.apk)
-- [MicroPython-Programm – esp32_connect.py](esp32_connect.py)
+- [Android-App – esp32_connect.apk](ressourcen/esp32_connect.apk)
+- [MicroPython-Programm – esp32_connect.py](ressourcen/esp32_connect.py)
 
 **ESP32 Connect – mobile Kontrolle und Datenvisualisierung für deinen ESP32.**
