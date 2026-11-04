@@ -1,7 +1,7 @@
 ---
 ---
 
-<link rel="stylesheet" href="{{ '/style.css?v=2' | relative_url }}">
+<link rel="stylesheet" href="{{ '/style.css?v=3' | relative_url }}">
 
 <div class="site-layout">
 
